@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="layouts/basic">
+<head>
+<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+<h1>Products</h1>
+	<tr th:each="p : ${products}">
+		<td th:text="${p.productId} + '.'"></td>
+		<td th:text="${p.productName}"></td>
+		<td th:text="${p.price} + '  |  '"></td>
+		<td th:text="${p.manufacturer} + '  |  '"></td>
+		<td th:text="${p.condition}"></td>
+		<td><a class="btn btn-default" href="/"
+			th:href="@{|/product/${p.productId}}" role="button">View</a></td>
+				    <td><a class="btn btn-default"
+		    th:href="@{|/product/${p.productId}/delete|}" role="button">Delete</a></td>		
+		<hr></hr>	
+	</tr>
+</body>
+</html>

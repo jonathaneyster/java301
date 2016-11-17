@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="layouts/basic">
+<head>
+   <title>User Detail</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<h1>User Details <a href="/" th:href="@{|/user/${user.id}/edit|}"> - Edit</a></h1>
+	
+	<div th:if="${user}">
+				<ul th:object="${user}">
+			<li th:text="'First name:     ' + *{firstName}"></li>
+			<li th:text="'Last name:     ' + *{lastName}"></li>
+			<li th:text="'Phone number:     ' + *{phone}"></li>
+			<li th:text="'Email:     ' + *{email}"></li>
+			<li th:text="'User id:     ' + *{id}"></li>	
+		</ul>
+	</div>
+
+</body>
+</html>

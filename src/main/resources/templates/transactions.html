@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="layouts/basic">
+<head>
+   <title>Tansactions</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<h2>Transactions</h2>
+<br></br>
+	<tr th:each="t : ${transactions}">
+		<td th:text="${t.id} + '.'"></td>
+		<td th:text="${t.transactionDate}"></td>
+		<td th:text="${t.customer} + '  |  '"></td>
+		<td th:text="${t.product} + '  |  '"></td>
+		<td><a class="btn btn-default" href="/"
+			th:href="@{|/transaction/${t.id}}" role="button">View</a></td>
+		<hr></hr>	
+	</tr>
+</body>
+</html>

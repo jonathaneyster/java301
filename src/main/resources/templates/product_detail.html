@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="layouts/basic">
+<head>
+   <title>Product Detail</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<h1>Product Details <a href="/" th:href="@{|/product/${product.productId}/edit|}"> - Edit</a></h1>
+	
+	<div th:if="${product}">
+		
+		<ul th:object="${product}">
+			<li th:text="'Product Name:     ' + *{productName}"></li>
+			<li th:text="'Price:     ' + *{price}"></li>
+			<li th:text="'Manufacturer:     ' + *{manufacturer}"></li>
+			<li th:text="'Condition:     ' + *{condition}"></li>
+			<li th:text="'Product id:     ' + *{productId}"></li>	
+		</ul>
+	</div>
+		   
+</body>
+</html>

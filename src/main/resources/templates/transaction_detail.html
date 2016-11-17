@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" layout:decorator="layouts/basic">
+<head>
+   <title>Product Detail</title>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<h1>Transaction Details </h1>
+	
+	<div th:if="${transaction}">
+		
+		<ul th:object="${transaction}">
+			<li th:text="'Transaction date:     ' + *{transactionDate}"></li>
+			<li th:text="'Customer:     ' + *{customer}"></li>
+			<li th:text="'Product:     ' + *{product}"></li>
+			<li th:text="'Transaction id:     ' + *{id}"></li>	
+		</ul>
+	</div>
+		   
+</body>
+</html>

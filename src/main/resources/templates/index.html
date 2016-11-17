@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	layout:decorator="layouts/basic">
+<head>
+<title>Home</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<h1>Home</h1>
+	<br></br>
+		<td><a class="btn btn-default" href="/"
+			th:href="@{/transactions}" role="button">View transactions</a></td>	
+	<h2>Users</h2>
+<br></br>
+	<tr th:each="u : ${users}">
+		<td th:text="${u.id} + '.'"></td>
+		<td th:text="${u.firstName}"></td>
+		<td th:text="${u.lastName} + '  |  '"></td>
+		<td th:text="${u.email} + '  |  '"></td>
+		<td th:text="${u.phone}"></td>
+		<td><a class="btn btn-default" href="/"
+			th:href="@{|/user/${u.id}}" role="button">View</a></td>
+		<hr></hr>	
+	</tr>
+<br></br>
+	<br></br>
+	<h2>Products</h2>
+			<td><a class="btn btn-default"
+		    th:href="@{/product/add}" role="button">Add</a></td>	
+		    
+	
+	<br></br>
+	<tr th:each="p : ${products}">
+		<td th:text="${p.productId} + '.'"></td>
+		<td th:text="${p.productName}"></td>
+		<td th:text="${p.price} + '  |  '"></td>
+		<td th:text="${p.manufacturer} + '  |  '"></td>
+		<td th:text="${p.condition}"></td>
+		<td><a class="btn btn-default" href="/"
+			th:href="@{|/product/${p.productId}}" role="button">View</a></td>
+				    <td><a class="btn btn-default"
+		    th:href="@{|/product/${p.productId}/delete|}" role="button">Delete</a></td>		
+		<hr></hr>	
+	</tr>
+</body>
+</html>
